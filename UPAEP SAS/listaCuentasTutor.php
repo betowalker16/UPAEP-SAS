@@ -49,43 +49,39 @@
 
 <?php
 require_once "php/1_conexion.php";
-$cmd="select id,nombre,correo from profesor";
+$cmd="select id,tutor,correo,verificada from alumno where id_profesor=1";
 $tab=$conexion->query($cmd);
 $columnas=0;
 if($tab->num_rows==0) 
 return;
 ?>
-<h1> LISTA DE CUENTAS DE PROFESORES</h1>
+<h1> LISTA DE CUENTAS DE TUTORES</h1>
 <table>
 	<tr>
 		<th>ID</th>
-		<th>NOMBRE</th>
+		<th>TUTOR</th>
 		<th>CORREO</th>
-		<th>ELIMINAR</th>
+		<th>VERIFICADO</th>
 	</tr>
 <?php
 while($reg=$tab->fetch_assoc())
 {
     $id=$reg["id"];
-    $nom=$reg["nombre"];
+    $nom=$reg["tutor"];
     $correo=$reg["correo"];
+	$verf=$reg["verificada"];
 	
 	echo "<tr>
 			<td> $id </td>
 			<td> $nom </td>
 			<td> $correo </td>
-			<td> 
-				<form action='php/eliminar.php' method='POST'>
-					<input type='hidden' value='$id' name='id'/>
-					<button type='submit' class='btn btn-danger'> <span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>
-				</form>
-			</td>
+			<td> $verf</td>
 		 </tr>";
 }
 ?>
 
 <div  style='text-align:center; margin:20px;' >
-	<a href='../menuOpc.html'><input  type='button' class='btn btn-default' value='Regresar' /></a>
+	<a href='../menuOpcProf.html'><input  type='button' class='btn btn-default' value='Regresar' /></a>
 </div>
 </body>
 </html>

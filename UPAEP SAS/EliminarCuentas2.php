@@ -49,17 +49,17 @@
 
 <?php
 require_once "php/1_conexion.php";
-$cmd="select id,nombre,correo from profesor";
+$cmd="select id,tutor,correo from alumno";
 $tab=$conexion->query($cmd);
 $columnas=0;
 if($tab->num_rows==0) 
 return;
 ?>
-<h1> LISTA DE CUENTAS DE PROFESORES</h1>
+<h1> LISTA DE CUENTAS DE TUTORES</h1>
 <table>
 	<tr>
 		<th>ID</th>
-		<th>NOMBRE</th>
+		<th>TUTOR</th>
 		<th>CORREO</th>
 		<th>ELIMINAR</th>
 	</tr>
@@ -67,7 +67,7 @@ return;
 while($reg=$tab->fetch_assoc())
 {
     $id=$reg["id"];
-    $nom=$reg["nombre"];
+    $nom=$reg["tutor"];
     $correo=$reg["correo"];
 	
 	echo "<tr>
@@ -75,7 +75,7 @@ while($reg=$tab->fetch_assoc())
 			<td> $nom </td>
 			<td> $correo </td>
 			<td> 
-				<form action='php/eliminar.php' method='POST'>
+				<form action='php/eliminar2.php' method='POST'>
 					<input type='hidden' value='$id' name='id'/>
 					<button type='submit' class='btn btn-danger'> <span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>
 				</form>

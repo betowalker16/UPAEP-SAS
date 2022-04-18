@@ -5,15 +5,12 @@ $contraseña = $_POST['contraseña'];
 include('1_conexion.php');
 $consulta2 = "Select id from superadmin where correo = '$correo' and contraseña = '$contraseña' UNION Select id from admin where correo = '$correo' and contraseña = '$contraseña' UNION Select id from profesor where correo = '$correo' and contraseña = '$contraseña'";
 $id = mysqli_query($conexion,$consulta2);
-$consulta = "Select * from superadmin where correo = '$correo' and contraseña = '$contraseña' UNION Select * from admin where correo = '$correo' and contraseña = '$contraseña' UNION Select * from profesor where correo = '$correo' and contraseña = '$contraseña'";
+$consulta = "Select * from profesor where correo = '$correo' and contraseña = '$contraseña'";
 $resultado = mysqli_query($conexion,$consulta);
 
 $filas = mysqli_num_rows($resultado);
 
 if($filas) {
-    if($id>=100)
-    header('location:../menuOpc.html');
-    else if($id<100)
     header('location:../Perfil.php');
 }
 else {
