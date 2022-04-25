@@ -55,7 +55,7 @@
 		<?php
 			require_once "php/1_conexion.php";
 			$id=$_POST["id"];
-			$cmd="select id, nombre, correo, contraseña from profesor where $id = id UNION select id, nombre, correo, contraseña from alumno where $id = id";
+			$cmd="select id, nombre, correo, contraseña from profesor where $id = id";
 			$tab=$conexion->query($cmd);
 			$reg=$tab->fetch_assoc();
 			$nombre=$reg["nombre"];

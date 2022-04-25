@@ -3,11 +3,12 @@
 	
 	#preparamos el comando de inserción
 
-	$nombre=$_POST["nombre"];
+	$id=$_POST["id_prof"];
+	$nombre=$_POST["alumno"];
 	$correo=$_POST["correo"];
-	$tutor=$_POST["tutor"];
+	$tutor=$_POST["nombre"];
 	
-	$cmd="insert into alumno(tutor, nombre, correo, contraseña) values ('$tutor','$nombre','$correo')";
+	$cmd="insert into alumno(id_profesor, tutor, nombre, correo, verificada) values ($id, '$tutor','$nombre','$correo', 'NO')";
 	$resp=$conexion->query($cmd);
 	if($resp)
 	{

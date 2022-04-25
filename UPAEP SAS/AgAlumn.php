@@ -57,18 +57,23 @@
 		<form action="php/registrar2.php" method="POST" enctype="multipart/form-data"> 
 				
 				<div class='input-group' style="margin:15px;">
+					<span class='input-group-addon'><i class='glyphicon glyphicon-edit'></i></span>
+					<input type='text' maxlength='100' class='form-control' name='id_prof' placeholder='id de profesor' required/>
+				</div>
+
+				<div class='input-group' style="margin:15px;">
 				 <span class='input-group-addon'><i class='glyphicon glyphicon-edit'></i></span>
 				 <input type='text' maxlength='100' class='form-control' name='nombre' placeholder='Nombre del tutor' required/>
 				</div>
 
 				<div class='input-group' style="margin:15px;">
 				 <span class='input-group-addon'><i class='glyphicon glyphicon-edit'></i></span>
-				 <input type='text' maxlength='100' class='form-control' name='correo' placeholder='nombre del alumno' required/>
+				 <input type='text' maxlength='100' class='form-control' name='alumno' placeholder='nombre del alumno' required/>
 				</div>
 
 				<div class='input-group' style="margin:15px;">
 				 <span class='input-group-addon'><i class='glyphicon glyphicon-edit'></i></span>
-				 <input type='text' maxlength='100' class='form-control' name='contraseña' placeholder='correo del alumno' required/>
+				 <input type='text' maxlength='100' class='form-control' name='correo' placeholder='correo del tutor' required/>
 				</div>
 				
 				<div  style='text-align:center; margin:20px;' >
